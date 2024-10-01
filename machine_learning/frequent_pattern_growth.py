@@ -240,12 +240,11 @@ def ascend_tree(leaf_node: TreeNode, prefix_path: list[str]) -> None:
         ascend_tree(leaf_node.parent, prefix_path)
 
 
-def find_prefix_path(base_pat: frozenset, tree_node: TreeNode | None) -> dict:  # noqa: ARG001
+def find_prefix_path(tree_node: TreeNode | None) -> dict:
     """
     Find the conditional pattern base for a given base pattern.
 
     Args:
-        base_pat: The base pattern for which to find the conditional pattern base.
         tree_node: The node in the FP-Tree.
 
     Example:
@@ -317,7 +316,7 @@ def mine_tree(
         new_freq_set = pre_fix.copy()
         new_freq_set.add(base_pat)
         freq_item_list.append(new_freq_set)
-        cond_patt_bases = find_prefix_path(base_pat, header_table[base_pat][1])
+        cond_patt_bases = find_prefix_path(header_table[base_pat][1])
         my_cond_tree, my_head = create_tree(list(cond_patt_bases), min_sup)
         if my_head is not None:
             # Pass header_table[base_pat][1] as node_to_test to update_header
