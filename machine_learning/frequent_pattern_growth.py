@@ -262,7 +262,7 @@ def find_prefix_path(tree_node: TreeNode | None) -> dict:
     >>> len(header_table)
     4
     >>> base_pattern = frozenset(['A'])
-    >>> sorted(find_prefix_path(base_pattern, fp_tree.children['A']))
+    >>> sorted(find_prefix_path(fp_tree.children['A']))
     []
     """
     cond_pats: dict = {}
